@@ -15,7 +15,7 @@ from aws_lambda_powertools.event_handler.exceptions import (InternalServerError)
 from aws_lambda_powertools.utilities.typing import LambdaContext
 
 from lambda_app_common import Organization, env_vars
-req_handler = Organization.ApiRequestHandler('LogisticsHub', 'Filters')
+req_handler = Organization.ApiRequestHandler('Application', 'Service')
 
 cors_config = CORSConfig(allow_origin=env_vars.CORS_ALLOW_ORIGIN, max_age=300)
 app = APIGatewayRestResolver(cors=cors_config)
