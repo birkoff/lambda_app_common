@@ -4,7 +4,7 @@ from abc import abstractmethod, ABC
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from Environment import LOCAL, LOG_DB_TRANSACTIONS
+from .Environment import LOCAL, LOG_DB_TRANSACTIONS
 
 if LOCAL is True:
     from dotenv import load_dotenv
