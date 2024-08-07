@@ -1,11 +1,16 @@
 import json
+import os
 from abc import abstractmethod, ABC
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from Environment import LOCAL, LOG_DB_TRANSACTIONS
 
-from .env_vars import LOCAL, LOG_DB_TRANSACTIONS, DB_CREDENTIALS
+if LOCAL is True:
+    from dotenv import load_dotenv
+    load_dotenv()
 
+DB_CREDENTIALS = os.getenv("DB_CREDENTIALS", "{}")
 DB = json.loads(DB_CREDENTIALS)
 
 if LOCAL:
